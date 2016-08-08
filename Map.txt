@@ -1,0 +1,9 @@
+Short term goals
+======================
+Getting the logic of the game correctly
+Having the game stop when all members have died or a certain key is pressed
+
+Long term goals
+======================
+A professional looking GUI
+"Cleaning the code" (Making it shorter and easier to follow along)

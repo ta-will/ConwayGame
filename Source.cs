@@ -27,6 +27,56 @@ namespace Conway
 			}
 		}
 
+		public void setLife()
+		{
+			Console.WriteLine("Life will spawn according to the coordinates that you give.");
+			Console.WriteLine("Give as many coordinates as you like.");
+
+			bool cont = true;
+
+			int coordCount = 0;
+			int maxCoordinates = Height * Width;
+			int convertX, convertY;
+
+			string x, y;
+
+			while(cont == true)
+			{
+				Console.Clear();
+
+				Console.WriteLine("Enter a coordinate when prompted or enter the key '!' to stop adding coordinates");
+
+				Console.WriteLine("X Coordinate:");
+				x = Console.ReadLine();
+				Console.WriteLine(" ");
+
+				if(x.Equals("!") == false)
+				{
+					Console.WriteLine("Y Coordinate:");
+					y = Console.ReadLine();
+					Console.WriteLine(" ");
+
+					convertX = Convert.ToInt32(x);
+					convertY = Convert.ToInt32(y);
+
+					currentLife[convertX, convertY] = 'X';
+
+					Console.WriteLine("Life at: ( " + convertX + " , " + convertY + " )" + " Has been added.");
+					displayBoard();
+
+					System.Threading.Thread.Sleep(3000);
+
+					++coordCount;
+				}
+
+				if(x.Equals("!") == true)
+					cont = false;
+
+				if(coordCount == maxCoordinates)
+					cont = false;
+			}
+		}
+
 		public void displayBoard()
 		{
 			for(int i = 0; i < Height; ++i)
@@ -52,10 +102,14 @@ namespace Conway
 	{
 		static void Main()
 		{
+
 			Board obj = new Board();
 
 			obj.setDims(9,16);
 			obj.initBoard();
+			obj.setLife();
+
+			Console.WriteLine(" ");
 			obj.displayBoard();
 		}
 	}

@@ -4,10 +4,16 @@ namespace Conway
 {
 	class Board
 	{
-		public void setDims(int x, int y)
+		public void setDims()
 		{
-			Height = x;
-			Width = y;
+			Console.WriteLine("How big do you want this grid to be?");
+			Console.WriteLine("Width: ");
+			Console.WriteLine(" ");
+			Width = Convert.ToInt32(Console.ReadLine());
+
+			Console.WriteLine("Height: ");
+			Console.WriteLine(" ");
+			Height = Convert.ToInt32(Console.ReadLine());
 		}
 
 		public void initBoard()
@@ -105,7 +111,7 @@ namespace Conway
 
 			Board obj = new Board();
 
-			obj.setDims(9,16);
+			obj.setDims();
 			obj.initBoard();
 			obj.setLife();
 
